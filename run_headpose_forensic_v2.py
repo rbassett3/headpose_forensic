@@ -39,7 +39,7 @@ def main(args):
         tmp_dict['probability'] = proba
         tmp_dict['optout'] = optout
         proba_list.append(tmp_dict)
-    pickle.dump(proba_list, open('proba_list.p', 'wb'))
+    pickle.dump(proba_list, open(args.save_file, 'wb'))
 
 
 if __name__ == '__main__':
@@ -50,6 +50,6 @@ if __name__ == '__main__':
    parser.add_argument('--markID_a', type=str, default='18-36,49,55', help='landmark ids to estimate WHOLE face region')
    # parser.add_argument('--classifier_path', type=str, default='models/trained_models/40SVM_rbf_default_r&t_converted.p')
    parser.add_argument('--classifier_path', type=str, default='models/trained_models/R_full_mat_t_vec_model.p')
-   parser.add_argument('--save_file', type=str, default='result/final_results.p')
+   parser.add_argument('--save_file', type=str, default='proba_list.p')
    args = parser.parse_args()
    main(args)
