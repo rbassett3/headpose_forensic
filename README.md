@@ -1,8 +1,8 @@
 ### HeadPose Forensics
 
-This repository is the implementation of the work used in our paper on ICASSP: 
+This repository is the implementation of the work used in our ICASSP
 
-[Exposing Deep Fakes Using Inconsistent Head Poses]: https://arxiv.org/abs/1811.00661
+[paper]: https://arxiv.org/abs/1811.00661	"Exposing Deep Fakes Using Inconsistent Head Poses"
 
 
 
