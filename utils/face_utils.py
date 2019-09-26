@@ -1,5 +1,4 @@
 import numpy as np
-import math
 
 def rect_to_bb(rect):
     # take a bounding predicted by dlib and convert it

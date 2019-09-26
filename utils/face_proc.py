@@ -6,13 +6,7 @@ Face related processing class:
 """
 
 import numpy as np
-import cv2
 import dlib
-import argparse
-import os
-import pandas as pd
-import pickle
-import sys
 from utils.proc_vid import parse_vid
 from utils.face_utils import shape_to_np
 from tqdm import tqdm
@@ -28,22 +22,16 @@ class FaceProc(object):
     
     def get_landmarks(self, img):   
         # return 68X2 landmarks
-        height, width = img.shape[:2]
         img_rgb = img[:, :, (2 ,1, 0)]
-        # gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
         rects = self.face_detector(np.uint8(img_rgb))
-        if(len(rects)==0):
-            return [-1]
+        if(len(rects)==0):            return None
         marks = self.landmark_estimatior(img_rgb, rects[0])
         marks = shape_to_np(marks)
 
-        # for pt in marks:
-        #     cv2.circle(img, tuple(pt), 4, (0, 0, 255), -1)
         return marks
 
     def get_all_face_rects(self, img):
         img_rgb = img[:, :, (2 ,1, 0)]
-        # gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
         rects = self.face_detector(np.uint8(img_rgb))
         if(len(rects)==0):
             return None

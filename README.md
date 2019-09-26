@@ -8,12 +8,35 @@
 - dlib 19.16.0
 - opencv-python 3.4.3.18
 
-#### Demo
+#### Test
 
+```bash
+python run_test.py --input_dir=debug_data --classifier_path=path/to/trained/model --save_file=path/to/output/results
 ```
-python run_headpose_forensic_v2.py --input_dir=debug_data
+
+This will examine all images and videos in the folder of 'debug_data', print results in terminal, and the probability of being fake images/video could be saved in --save_file in the project root folder. 
+
+The result include a optout attribute, which indicate whether a image is not used for classification when it is true.
+
+#### Train
+
+There are 3 steps to train the classifier:
+
+step 1: extract landmarks of real and fake data
+
+```bash
+python train_step1_landmarks.py --real_video_dir=dir/to/real/videos --fake_video_dir=dir/to/fake/videos --output_landmark_path=path/to/save/landmarks
 ```
 
-This will examine all images and videos in the folder of 'debug_data', print results in terminal, and also saved as "proba_list.p" in the project root folder.
+step 2: extract head poses
 
-I used the virtualenv as environment, and the list of packages I used is in requirements.txt.
+```bash
+python train_step2_headposes.py --landmark_info_path=path/to/landmarks/in/step1 --headpose_save_path=path/to/save/headpose/data
+```
+
+step 3: train svm model
+
+```bash
+python train_step3_training.py --headpose_path=path/to/headposes/in/step2 --model_save_path=path/to/save/trained/model
+```
+

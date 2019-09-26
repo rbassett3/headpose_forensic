@@ -1,15 +1,9 @@
 import os
-from skimage import io
-from face_proc_v2 import FaceProc
-import cv2
+from utils.face_proc import FaceProc
 import argparse
-import yaml
-
-from utils import pose_utils as pu
 import pickle
-import numpy as np
-from test_v2 import exam_img, exam_video
-import pandas as pd
+from forensic_test import exam_img, exam_video
+
 
 def main(args):
     all_paths = os.listdir(args.input_dir)
@@ -43,12 +37,10 @@ def main(args):
 
 
 if __name__ == '__main__':
-   parser = argparse.ArgumentParser(description="say something you like")
-   parser.add_argument('--cfg', type=str, default='cfgs/head_pose_cfg/head_pose_B.yaml')
+   parser = argparse.ArgumentParser(description="headpose forensics")
    parser.add_argument('--input_dir', type=str, default='debug_data')
-   parser.add_argument('--markID_c', type=str, default='1-36,49,55', help='landmark ids to estimate CENTRAL face region')
-   parser.add_argument('--markID_a', type=str, default='18-36,49,55', help='landmark ids to estimate WHOLE face region')
-   # parser.add_argument('--classifier_path', type=str, default='models/trained_models/40SVM_rbf_default_r&t_converted.p')
+   parser.add_argument('--markID_c', type=str, default='18-36,49,55', help='landmark ids to estimate CENTRAL face region')
+   parser.add_argument('--markID_a', type=str, default='1-36,49,55', help='landmark ids to estimate WHOLE face region')
    parser.add_argument('--classifier_path', type=str, default='models/trained_models/R_full_mat_t_vec_model.p')
    parser.add_argument('--save_file', type=str, default='proba_list.p')
    args = parser.parse_args()

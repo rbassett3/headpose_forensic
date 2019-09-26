@@ -21,6 +21,6 @@ def save2csv(dest_path, all_landmarks, vids_id, label_list):
             data.loc[n] = [vids_id[i] + '/' + str(j)] + list(temp_data[0]) + [label_list[i]]
             n += 1
     data.to_csv(dest_path)
-    # return data
+
 
 

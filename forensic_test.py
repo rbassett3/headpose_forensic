@@ -1,25 +1,8 @@
 import os
-from skimage import io
-from face_proc_v2 import FaceProc
 import cv2
-import argparse
-import yaml
-from head_pose_proc import PoseEstimator
-from utils import pose_utils as pu
-import pickle
+from utils.head_pose_proc import PoseEstimator
 import numpy as np
 from utils.proc_vid import parse_vid
-
-
-def test(args, all_paths):
-    # initiate face process class, used to detect face and extract landmarks
-    face_inst = FaceProc()
-
-    # initialize SVM classifier for face forensics
-    with open(args.classifier_path, 'rb') as f:
-        model = pickle.load(f)
-    classifier = model[0]
-    scaler = model[1]
 
 
 def exam_video(args, vid_path, face_inst, classifier, scaler):
@@ -93,5 +76,4 @@ def examine_a_face(args, landmarks, classifier, scaler, pose_estimator):
     scaled_feature = scaler.transform(feature)
     score = classifier.predict_proba(scaled_feature)
 
-    # print('image: {}; fake_probability: {}; predicted_label: {}'.format(path, score[0][-1]))
     return score[0][-1]
