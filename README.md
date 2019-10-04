@@ -49,7 +49,7 @@ python train_step3_training.py --headpose_path=path/to/headposes/in/step2 --mode
 
 Please cite our paper in your publications if it helps your research.
 ```commandline
-@inproceedings{yang2018exposing,
+@inproceedings{yang2019exposing,
   title={Exposing Deep Fakes Using Inconsistent Head Poses},
   author={Yang, Xin and Li, Yuezun and Lyu, Siwei},
   booktitle={IEEE International Conference on Acoustics, Speech and Signal Processing (ICASSP)},
