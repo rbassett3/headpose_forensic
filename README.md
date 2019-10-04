@@ -45,3 +45,5 @@ step 3: train svm model
 python train_step3_training.py --headpose_path=path/to/headposes/in/step2 --model_save_path=path/to/save/trained/model
 ```
 
+#### Notice
+This repository is NOT for commecial use. It is provided "as it is" and we are not responsible for any subsequence of using this code.
