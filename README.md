@@ -45,8 +45,6 @@ step 3: train svm model
 python train_step3_training.py --headpose_path=path/to/headposes/in/step2 --model_save_path=path/to/save/trained/model
 ```
 
-#### UADFV dataset 
-Dataset can be downloaded [here](https://drive.google.com/drive/folders/1GEk1DSxmlV_61JtpEGzC9Fo_BffvyxpH?usp=sharing).
 
 #### Citation
 
