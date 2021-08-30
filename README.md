@@ -1,3 +1,5 @@
+### Note: This repo was forked from the original on bitbucket: https://bitbucket.org/ericyang3721/headpose_forensic.git
+
 ### HeadPose Forensics
 
 This repository is the implementation of the work used in our ICASSP paper
